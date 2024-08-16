@@ -1,0 +1,37 @@
+
+
+<app-navbar></app-navbar>
+<app-side></app-side>
+<div class="col-lg-9 col-md-12 right">
+  <nav aria-label="breadcrumb ">
+    <ol class="no breadcrumb">
+     
+     
+    </ol>
+  </nav>
+  <nav aria-label="breadcrumb ">
+    <ol class="breadcrumb">
+     
+      <li class="breadcrumb-item active" aria-current="page">
+        feedback
+      </li>
+    </ol>
+  </nav>
+  <h2 class="text-center">Create Feedback</h2>
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+     
+      <div class="col" *ngFor="let course of courses">
+        <div class="card">
+          <a [routerLink]="['/multifeedback']">
+            <img [src]="'../assets/images/' + course.image" class="c2 card-img-top" [alt]="course.alt"
+              data-toggle="tooltip" data-placement="top" title="click & view attendance" />
+          </a>
+          <div class="card-body">
+            <p class="card-text text-center">{{ course.name }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

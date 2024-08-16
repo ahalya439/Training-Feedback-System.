@@ -1,0 +1,79 @@
+<app-navbarr></app-navbarr>
+<app-sideee></app-sideee>
+
+<div class="col-md-12 col-lg-9 right">
+  <div class="top mb-5">
+    
+    <nav aria-label="breadcrumb" >
+      <ol class="no breadcrumb mt-4">
+        </ol>
+    </nav>
+    <nav aria-label="breadcrumb" >
+      <ol class="breadcrumb mt-4">
+        <li class="breadcrumb-item">
+          <a [routerLink]="['/feedbackk']">Feedback</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Php Feedback</li>
+      </ol>
+    </nav>
+    <div id="rightt">
+      <h2 class="mycourse text-center mt-4">Php Feedback</h2>
+      <div class="container">
+        <h6>New Feedback</h6>
+        <table class="table table-striped mt-2">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let feedback of newFeedback">
+              <td>
+                <a
+                  routerLink="/Pastfeedback"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Click to give feedback"
+                  class="feed"
+                >{{ feedback.name }}</a>
+              </td>
+              <td>{{ feedback.date }}</td>
+            </tr>
+            <tr *ngIf="newFeedback.length === 0">
+              <td colspan="2" class="text-center">No new feedback available.</td>
+            </tr>
+          </tbody>
+        </table>
+    
+        <h6>Existing Feedback</h6>
+        <table class="table table-striped mt-2">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let feedback of existingFeedback">
+              <td>
+                <a
+                  routerLink="/rep"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  [title]="'Filled feedback - ' + feedback.title"
+                  class="feed"
+                >{{ feedback.name }}</a>
+              </td>
+              <td>{{ feedback.date }}</td>
+            </tr>
+            <tr *ngIf="existingFeedback.length === 0">
+              <td colspan="2" class="text-center">No existing feedback available.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+  </div>
+</div>

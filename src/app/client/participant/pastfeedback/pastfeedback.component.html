@@ -1,0 +1,98 @@
+<app-navbarr></app-navbarr>
+<app-sideee></app-sideee>
+     <div class="col-md-12 col-lg-9 right">
+          <div id="rightt">
+            <div class="move">
+              <nav aria-label="breadcrumb ">
+                <ol class="no breadcrumb">
+                  
+                </ol>
+              </nav>
+              <nav aria-label="breadcrumb ">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">
+                    <a routerLink="/feedbackk">feedback</a>
+                  </li>
+                  <li class="breadcrumb-item">
+                    <a routerLink="/Multiplefeedback">php feedback</a>
+                  </li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    feedback-5
+                  </li>
+                </ol>
+              </nav>
+              <h1 style="font-size: 30px; margin-left: 18px">PHP Feedback</h1>
+              <p style="margin-left: 18px">
+                Your feedback is important to us as it helps us improve our
+                training programs. Please take a few minutes to share your
+                thoughts.
+              </p>
+            
+
+  <div class="container mt-4">
+    <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <p>Would you like to provide anonymous feedback?</p>
+        <div class="form-check">
+          <input type="checkbox" formControlName="anonymousFeedback" class="form-check-input" />
+          <label for="anonymousFeedback" class="form-check-label">Go, anonymous feedback</label>
+        </div>
+      </div>
+      
+
+    
+      <div *ngFor="let question of questions " class="mb-4">
+<hr *ngIf="question.title">
+        <h2>{{ question.title }}</h2> 
+        <br>
+        <h5>{{ question.question }}</h5>
+        <div *ngIf="question.questionType === 'radio'">
+          <div *ngFor="let option of question.options">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" [id]="option" [value]="option" [formControlName]="'question' + question.id">
+              <label class="form-check-label" [for]="option">{{ option }}</label>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="question.questionType === 'checkbox'">
+          <div *ngFor="let option of question.options">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" [id]="option" [value]="option" [formControlName]="'question' + question.id">
+              <label class="form-check-label" [for]="option">{{ option }}</label>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="question.questionType === 'text'" class="mb-3">
+          <input class="form-control" type="text" [id]="'textResponse' + question.id" [formControlName]="'question' + question.id">
+          <div *ngIf="feedbackForm.get('question' + question.id)?.invalid && feedbackForm.get('question' + question.id)?.touched" class="text-danger" style="color: red;">This field is require with only alphabet.</div>
+ 
+        </div>
+
+      </div>
+      
+      <button type="submit"  class="btn btn-primary me-2 mb-4" [disabled]="!feedbackForm.valid" data-bs-target="#showSuccessModal" data-bs-toggle="modal">Submit</button>
+      <button type="button" class="btn btn-warning mb-4"  (click)="resetForm()" >Reset</button>
+
+    </form>
+  </div>
+
+
+
+  <div class="modal"id="showSuccessModal"tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="successModalLabel">Success</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="color: green">
+                Your Feedback have been submitted successfully!
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  
+

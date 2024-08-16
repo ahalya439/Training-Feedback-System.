@@ -1,0 +1,238 @@
+ 
+ 
+<app-navbar></app-navbar>
+<app-side></app-side>
+ <div class="col-lg-9 col-md-12 right">
+  <nav aria-label="breadcrumb ">
+    <ol class="breadcrumb">
+   
+      <li class="breadcrumb-item active" aria-current="page">
+       
+      </li> 
+    </ol> 
+  </nav>
+    <h2 class="text-center mt-4">Feedback</h2> 
+<div class="filter mt-4">
+  <input type="text" [(ngModel)]="filterValue" (input)="filterTable()" placeholder="Filter by course" class="form-control  mt-3 " />
+  <button (click)="exportToExcel()" class="btn btn-success submit-button mt-4 export ">Export to Excel</button>
+
+  <div class="btn-group" (mouseleave)="isSecondDropdownOpen = ''">
+    <button class="btn btn-primary dropdown-toggle mt-4 " style="margin-left: 10px;" type="button" id="dropdownMenuButton" 
+            (click)="isFirstDropdownOpen = !isFirstDropdownOpen" 
+            [ngClass]="{'active': isFirstDropdownOpen}">
+        
+        Insights
+    </button>
+    
+    <div class="dropdown-menu" *ngIf="isFirstDropdownOpen" 
+         aria-labelledby="dropdownMenuButton" 
+         [style.display]="isFirstDropdownOpen ? 'block' : 'none'"
+         [style.flexDirection]="isSecondDropdownOpen ? 'row' : 'column'" (mouseleave)="closeDropdowns()">
+        <button class="dropdown-item" (click)="toggleSecondDropdown('RenukaK')">Renuka</button>
+        <div class="dropdown-menu d-flex flex-wrap" *ngIf="isSecondDropdownOpen === 'RenukaK'" 
+             [style.display]="isSecondDropdownOpen === 'RenukaK' ? 'flex' : 'none'" 
+             aria-labelledby="secondDropdownButton-RenukaK">
+           
+            <button class="dropdown-item"data-bs-toggle="modal" data-bs-target="#insightsModal">Data science</button>
+            <button class="dropdown-item"data-bs-toggle="modal" data-bs-target="#insightsModal">Css</button>
+        </div>
+        <button class="dropdown-item" (click)="toggleSecondDropdown('RenukaT')">Chitra</button>
+        <div class="dropdown-menu d-flex flex-wrap" *ngIf="isSecondDropdownOpen === 'RenukaT'" 
+             [style.display]="isSecondDropdownOpen === 'RenukaT' ? 'flex' : 'none'" 
+             aria-labelledby="secondDropdownButton-RenukaT">
+            
+            <button class="dropdown-item"data-bs-toggle="modal" data-bs-target="#insightsModal">Angular</button>
+            <button class="dropdown-item"data-bs-toggle="modal" data-bs-target="#insightsModal">React</button>
+        </div>
+        <button class="dropdown-item" (click)="toggleSecondDropdown('RenukaR')">Ahalya</button>
+        <div class="dropdown-menu d-flex flex-wrap" *ngIf="isSecondDropdownOpen === 'RenukaR'" 
+             [style.display]="isSecondDropdownOpen === 'RenukaR' ? 'flex' : 'none'" 
+             aria-labelledby="secondDropdownButton-RenukaR">
+          
+            <button class="dropdown-item"data-bs-toggle="modal" data-bs-target="#insightsModal">Php</button>
+            <button class="dropdown-item"data-bs-toggle="modal" data-bs-target="#insightsModal">Html</button>
+        </div>
+    </div>
+  </div>
+
+ 
+
+<div class="table table-responsive mt-3 ">
+  <table class="table table-bordered">
+    <thead>
+      <tr class="border-0">
+        <th colspan="3" style="background-color: #b6cde7">General Information:</th>
+        <th colspan="4" style="background-color: #b6cde7">Training Effectiveness</th>
+        <th colspan="3" style="background-color: #b6cde7">Trainer Effectiveness</th>
+        <th colspan="4" style="background-color: #b6cde7">Training Delivery</th>
+      </tr>
+      <tr style="background-color: #b6cde7; width: 00px" class="border-0">
+        <th>S.NO</th>
+        <th>Student Name</th>
+        <th>Course Name</th>
+        <th>Instructor's Name</th>
+        <th>Q1.</th>
+        <th>Q2.</th>
+        <th>Q3.</th>
+        <th>Q4.</th>
+        <th>Q5.</th>
+        <th>Q6.</th>
+        <th>Q7.</th>
+        <th>Q8.</th>
+        <th>Q9.</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      
+    
+      <tr *ngFor="let row of filteredData.length > 0 ? filteredData : tableData">
+     
+        <td class="text-center">{{ row.id }}</td>
+        <td>{{ row.anonymousFeedback ? 'Anonymous' : row.question595b}}</td>
+        <td>{{ row.question5228}}</td>
+        <td>{{ row.question3435}}</td>
+        <td>{{ row.question5585}}</td> 
+       
+        <td>{{ row.question4ebb}}</td>
+        <td>{{ row.questioncdbe }}</td>
+        <td>{{ row.question82da}}</td>
+       
+        <td>{{ row.question8684}}</td>
+        <td>{{ row.question5aff}}</td>
+        <td>{{ row.questionf9f3}}</td>
+        <td>{{ row.question3269}}</td>
+        <td>{{ row.questionedc5}}</td>
+       
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+<div class="modal" id="insightsModal" tabindex="-1" role="dialog" aria-labelledby="insightsModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="insightsModalLabel">Create Insights</h5>
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+           
+<form [formGroup]="insightsForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="positiveAspects">Positive Aspects</label>
+    <textarea formControlName="positiveAspects" class="form-control" id="positiveAspects" rows="3"></textarea>
+  
+    <div class="error-message" *ngIf="insightsForm.get('positiveAspects')?.invalid && (insightsForm.get('positiveAspects')?.dirty || insightsForm.get('positiveAspects')?.touched)">
+      <ng-container *ngIf="insightsForm.get('positiveAspects')?.errors?.['required']">
+        This field is required.
+      </ng-container>
+      <ng-container *ngIf="insightsForm.get('positiveAspects')?.errors?.['noNumber']">
+        Positive aspects should not contain numbers.
+      </ng-container>
+      <ng-container *ngIf="insightsForm.get('positiveAspects')?.errors?.['noSpecialCharacter']">
+        Positive aspects should not contain special characters.
+      </ng-container>
+      <ng-container *ngIf="insightsForm.get('positiveAspects')?.errors?.['minlength']">
+        This field should be at least 5 characters long.
+      </ng-container>
+    </div>
+    
+  </div>
+
+  <div class="form-group">
+    <label for="areasForImprovement">Areas for Improvement</label>
+    <textarea formControlName="areasForImprovement" class="form-control" id="areasForImprovement" rows="3"></textarea>
+    <div class="error-message" *ngIf="insightsForm.get('areasForImprovement')?.invalid && (insightsForm.get('areasForImprovement')?.dirty || insightsForm.get('areasForImprovement')?.touched)">
+      <ng-container *ngIf="insightsForm.get('areasForImprovement')?.errors?.['required']">
+        This field is required.
+      </ng-container>
+      <ng-container *ngIf="insightsForm.get('areasForImprovement')?.errors?.['noNumber']">
+        Areas For Improvement should not contain numbers.
+      </ng-container>
+      <ng-container *ngIf="insightsForm.get('areasForImprovement')?.errors?.['noSpecialCharacter']">
+        Areas For Improvement should not contain special characters.
+      </ng-container>
+      <ng-container *ngIf="insightsForm.get('areasForImprovement')?.errors?.['minlength']">
+        This field should be at least 5 characters long.
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="suggestions">Suggestions</label>
+    <textarea formControlName="suggestions" class="form-control" id="suggestions" rows="3"></textarea>
+    <div class="error-message" *ngIf="insightsForm.get('suggestions')?.invalid && (insightsForm.get('suggestions')?.dirty || insightsForm.get('suggestions')?.touched)">
+      <ng-container *ngIf="insightsForm.get('suggestions')?.errors?.['required']">
+        This field is required.
+      </ng-container>
+      <ng-container *ngIf="insightsForm.get('suggestions')?.errors?.['noNumber']">
+        Suggestions should not contain numbers.
+      </ng-container>
+      <ng-container *ngIf="insightsForm.get('suggestions')?.errors?.['noSpecialCharacter']">
+        Suggestions should not contain special characters.
+      </ng-container>
+      <ng-container *ngIf="insightsForm.get('suggestions')?.errors?.['minlength']">
+        This field should be at least 5 characters long.
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="questions">Questions</label>
+    <textarea formControlName="questions" class="form-control" id="questions" rows="3"></textarea>
+    <div class="error-message" *ngIf="insightsForm.get('questions')?.invalid && (insightsForm.get('questions')?.dirty || insightsForm.get('questions')?.touched)">
+      <ng-container *ngIf="insightsForm.get('questions')?.errors?.['required']">
+        This field is required.
+      </ng-container>
+      <ng-container *ngIf="insightsForm.get('questions')?.errors?.['noNumber']">
+       Questions should not contain numbers.
+      </ng-container>
+      <ng-container *ngIf="insightsForm.get('questions')?.errors?.['noSpecialCharacter']">
+       Questions should not contain special characters.
+      </ng-container>
+      <ng-container *ngIf="insightsForm.get('questions')?.errors?.['minlength']">
+        This field should be at least 5 characters long.
+      </ng-container>
+    </div>
+  </div>
+
+
+<div class="modal-footer">
+  <button type="submit" class="btn btn-primary mt-3" [disabled]="insightsForm.invalid" data-bs-target="#showSuccessModal" data-bs-toggle="modal">Submit</button>
+  <button type="button" class="btn btn-secondary mt-3" (click)="clearForm()">Clear</button>
+
+</div>
+</form>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+<div class="modal"id="showSuccessModal"tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="successModalLabel">Success</h5>
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body" style="color: green">
+              Your insights have been submitted successfully!
+          </div>
+      </div>
+  </div>
+</div>
+
+  
+
+

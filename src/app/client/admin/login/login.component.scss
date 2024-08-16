@@ -1,0 +1,157 @@
+
+#role{
+    width: 100%;
+    margin-top: 15px;
+  }
+  .display-6 {
+      margin-top: 40px;
+      font-weight: 400;
+    }
+    .container {
+      margin-top: 20px;
+  
+      background-color: rgb(250, 253, 255);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .mm {
+      margin-top: -353px;
+    }
+    .display-5 {
+      font-weight: 500;
+      font-size: 35px;
+    }
+    .small {
+      color: rgb(112, 111, 111);
+    }
+    .dis {
+      font-weight: 400;
+      font-size: 30px;
+    }
+    .img-fluid {
+      height: 480px;
+      border-radius: 8px;
+    }
+    .error {
+      color: red;
+    }
+    .eye {
+      height: 20px;
+      width: 20px;
+      margin-left: 500px;
+      margin-top: -29px;
+    }
+    .toast {
+      color: green;
+    }
+    .col {
+      margin-top: -13px;
+    }
+  
+  
+    .display-6 {
+      margin-top: 40px;
+      font-weight: 400;
+    }
+    .container {
+      margin-top: 20px;
+  
+      background-color: rgb(250, 253, 255);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .mm {
+      margin-top: -353px;
+    }
+    .display-5 {
+      font-weight: 500;
+      font-size: 35px;
+    }
+    .small {
+      color: rgb(112, 111, 111);
+    }
+    .dis {
+      font-weight: 400;
+      font-size: 30px;
+    }
+    .img-fluid {
+      height: 480px;
+      border-radius: 8px;
+    }
+    .error {
+      color: red;
+    }
+    .eye {
+      height: 20px;
+      width: 20px;
+      margin-left: 500px;
+      margin-top: -29px;
+    }
+    .toast {
+      color: green;
+    }
+    .col {
+      margin-top: -13px;
+    }
+  
+    @media (min-width: 1442px) {
+      .container {
+        width: 1100px;
+      }
+      .forgot {
+        font-size: small;
+      }
+      #toast {
+        color: green;
+      }
+    }
+  
+    @media (max-width: 342px) {
+      .img-fluid {
+        height: 300px;
+      }
+      .eye {
+        margin-left: 270px;
+      }
+  
+      .display-5 {
+        font-weight: 500;
+        font-size: 25px;
+      }
+      .dis {
+        font-size: 25px;
+        text-align: center;
+      }
+      .small {
+        text-align: center;
+      }
+    }
+  
+    @media (min-width: 319px) {
+      .eye {
+        margin-left: 270px;
+        margin-top: -65px;
+       
+      }
+    }
+    @media (min-width: 742px) {
+      .eye {
+        margin-left: 300px;
+        position: fixed; 
+        margin-top: -29px; 
+      }
+    }
+    @media (min-width: 1022px) {
+      .eye {
+        margin-left: 400px;
+      }
+    }
+    @media (min-width: 1439px) {
+      .eye {
+        margin-left: 500px;  
+        position: fixed;   
+      }
+    }
+    @media (min-width: 2439px) {
+      .eye {
+        margin-left: 500px;
+      }
+    }

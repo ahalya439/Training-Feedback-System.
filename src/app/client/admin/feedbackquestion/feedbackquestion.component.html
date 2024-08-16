@@ -1,0 +1,156 @@
+
+<app-navbar></app-navbar>
+<app-side></app-side>
+<div class="col-lg-9 col-md-12 right">
+  <nav aria-label="breadcrumb">
+    <ol class="no breadcrumb">
+      
+    </ol>
+  </nav>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a [routerLink]="['/generatefeedback']">feedback</a></li>
+        <li class="breadcrumb-item">
+          <a routerLink="/multifeedback">php feedback</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          past question
+        </li>
+      </ol>
+    </nav>
+  
+    <div class="container mt-4">
+      <p style="font-size: 30px; margin-left: 18px">PHP Feedback</p>
+      <p style="margin-left: 18px">
+        Your feedback is important to us as it helps us improve our
+        training programs. Please take a few minutes to share your
+        thoughts.
+      </p>
+      <div class="container">
+        <h2 class="left">General Information:</h2>
+        <form #feedbackForm="ngForm" class="d-flex flex-column gap-3" (ngSubmit)="assignFeedback()">
+          <div class="form-group">
+            <p>Would you like to provide anonymous feedback?</p>
+            <div class="form-check">
+              <input type="checkbox" id="anonymousFeedback" name="anonymousFeedback" class="form-check-input"
+                [(ngModel)]="anonymousFeedback" />
+              <label for="anonymousFeedback" class="form-check-label">Go, anonymous feedback</label>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="studentName">Student Name:</label>
+            <input type="text" id="studentName" name="studentName" class="form-control" [(ngModel)]="studentName" />
+          </div>
+  
+          <h2>Training Effectiveness:</h2>
+  
+          <div class="form-group">
+            <p>1. How relevant was the training content to your learning objectives?</p>
+            <div class="form-check form-check-inline" *ngFor="let rating of ratings">
+              <input type="radio" [id]="'contentRelevance' + rating" name="contentRelevance" [value]="rating"
+                class="form-check-input" [(ngModel)]="contentRelevance" />
+              <label [for]="'contentRelevance' + rating" class="form-check-label">{{ rating }}</label>
+            </div>
+          </div>
+          <p>2. Were the training materials (e.g., presentations, handouts) clear and helpful in understanding the content?</p>
+          <div class="form-check">
+            <input type="radio" id="clearMaterialsYes" name="clearMaterials" value="Yes" class="form-check-input" [(ngModel)]="feedback.clearMaterials" required />
+            <label for="clearMaterialsYes" class="form-check-label">Yes</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" id="clearMaterialsNo" name="clearMaterials" value="No" class="form-check-input" [(ngModel)]="feedback.clearMaterials" required />
+            <label for="clearMaterialsNo" class="form-check-label">No</label>
+          </div>
+      
+          <div class="form-group">
+            <p>3. What specific topics or aspects of the training content did you find most valuable?</p>
+            <textarea id="valuableTopics" name="valuableTopics" rows="4" cols="50" class="form-control" [(ngModel)]="feedback.valuableTopics" required></textarea>
+          </div>
+      
+          <div class="form-group">
+            <p>4. Is there any content or subject matter you feel should have been included but was not?</p>
+            <textarea id="missingContent" name="missingContent" rows="4" cols="50" class="form-control" [(ngModel)]="feedback.missingContent" required></textarea>
+          </div>
+      
+          <div class="form-group">
+            <p>5. Were the training sessions well-structured and organized?</p>
+            <div class="form-check">
+              <input type="radio" id="wellStructuredYes" name="wellStructured" value="Yes" class="form-check-input" [(ngModel)]="feedback.wellStructured" required />
+              <label for="wellStructuredYes" class="form-check-label">Yes</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="wellStructuredNo" name="wellStructured" value="No" class="form-check-input" [(ngModel)]="feedback.wellStructured" required />
+              <label for="wellStructuredNo" class="form-check-label">No</label>
+            </div>
+          </div>
+      
+        
+          <h2>Instructor/Trainer Effectiveness:</h2>
+          <div class="form-group">
+            <p>6. How would you rate the instructor's knowledge of the subject matter?</p>
+            <div class="form-check form-check-inline">
+              <input type="radio" id="instructorKnowledge1" name="instructorKnowledge" value="1" class="form-check-input" [(ngModel)]="feedback.instructorKnowledge" required />
+              <label for="instructorKnowledge1" class="form-check-label">1</label>
+            </div>
+           
+          </div>
+          
+          <div class="form-group">
+            <p>7. Did the instructor effectively engage and interact with the class?</p>
+            <div class="form-check">
+              <input type="radio" id="instructorEngagementYes" name="instructorEngagement" value="Yes" class="form-check-input" [(ngModel)]="feedback.instructorEngagement" required />
+              <label for="instructorEngagementYes" class="form-check-label">Yes</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="instructorEngagementNo" name="instructorEngagement" value="No" class="form-check-input" [(ngModel)]="feedback.instructorEngagement" required />
+              <label for="instructorEngagementNo" class="form-check-label">No</label>
+            </div>
+          </div>
+      
+          
+          <div class="form-group">
+            <p>8. Were the explanations and examples provided by the instructor clear and easy to understand?</p>
+            <div class="form-check">
+              <input type="radio" id="clearExplanationsYes" name="clearExplanations" value="Yes" class="form-check-input" [(ngModel)]="feedback.clearExplanations" required />
+              <label for="clearExplanationsYes" class="form-check-label">Yes</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="clearExplanationsNo" name="clearExplanations" value="No" class="form-check-input" [(ngModel)]="feedback.clearExplanations" required />
+              <label for="clearExplanationsNo" class="form-check-label">No</label>
+            </div>
+          </div>
+      
+          
+          <div class="form-group">
+            <p>9. Did the trainer use appropriate teaching methods and resources during the sessions?</p>
+            <div class="form-check">
+              <input type="radio" id="appropriateMethodsYes" name="appropriateMethods" value="Yes" class="form-check-input" [(ngModel)]="feedback.appropriateMethods" required />
+              <label for="appropriateMethodsYes" class="form-check-label">Yes</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="appropriateMethodsNo" name="appropriateMethods" value="No" class="form-check-input" [(ngModel)]="feedback.appropriateMethods" required />
+              <label for="appropriateMethodsNo" class="form-check-label">No</label>
+            </div>
+          </div>
+      
+         
+          <div class="form-group">
+            <p>10. Were there any technical issues or disruptions during the training sessions?</p>
+            <div class="form-check">
+              <input type="radio" id="technicalIssuesYes" name="technicalIssues" value="Yes" class="form-check-input" [(ngModel)]="feedback.technicalIssues" required />
+              <label for="technicalIssuesYes" class="form-check-label">Yes</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="technicalIssuesNo" name="technicalIssues" value="No" class="form-check-input" [(ngModel)]="feedback.technicalIssues" required />
+              <label for="technicalIssuesNo" class="form-check-label">No</label>
+            </div>
+          </div>
+      
+        
+          <button type="submit" class="btn btn-primary mb-3" style="width:150px"  >Assign Feedback</button>
+        </form>
+      </div>
+    </div>
+  </div>
+ 

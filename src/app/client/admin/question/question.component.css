@@ -1,0 +1,136 @@
+@media (min-width: 1440px) {
+  .col-lg-9 {
+    width: 1050px;
+    margin-top: 50px;
+    margin-left: 350px;
+  }
+}
+/* question-form.component.css */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.add-question-container {
+  margin-bottom: 20px;
+}
+
+.add-question-container label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.add-question-container input[type=text],
+.add-question-container select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.options-container {
+  margin-top: 10px;
+}
+
+.add-question-container button {
+  margin-right: 10px;
+  padding: 8px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.add-question-container button:hover {
+  background-color: #0056b3;
+}
+
+.added-questions-container {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.question-item {
+  margin-bottom: 10px;
+}
+
+.options .option {
+  display: inline-block;
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  margin-right: 5px;
+}
+
+.breadcrumb {
+  background-color: #f8f9fa;
+  padding: 10px 15px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+/* Breadcrumb item styling */
+.breadcrumb-item {
+  display: inline-block;
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+.breadcrumb-item a {
+  text-decoration: none;
+}
+
+/* Active breadcrumb item styling */
+.breadcrumb-item.active {
+  color: #007bff;
+  font-weight: bold; /* Make the active item bold */
+}
+
+/* Separator styling */
+.breadcrumb-item::after {
+  content: ""; /* Use a bullet point as a separator */
+  margin-left: 8px;
+  color: #6c757d;
+}
+
+.no {
+  background-color: none;
+  box-shadow: none;
+}
+
+/* Remove separator from the last item */
+.breadcrumb-item:last-child::after {
+  content: none;
+}
+
+/* Container styling for the "Added Questions" section */
+.question-container {
+  border: 1px solid #ccc; /* Add a border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 20px; /* Add padding for space inside the container */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow for a subtle effect */
+  background-color: #f9f9f9; /* Light background color */
+  margin-top: 20px; /* Margin at the top */
+}
+
+/* Styling for individual question items */
+.question-item {
+  margin-bottom: 20px; /* Space between question items */
+  padding-bottom: 10px; /* Padding at the bottom */
+  border-bottom: 1px solid #eee; /* Border bottom for separation */
+}
+
+/* Styling for question headings */
+.question-item h3 {
+  font-size: 18px; /* Larger font size for headings */
+  color: #333; /* Dark color for headings */
+  margin-bottom: 5px; /* Margin at the bottom of headings */
+}
+
+/* Styling for paragraph text */
+.question-item p {
+  margin: 5px 0; /* Margin top and bottom for paragraphs */
+}
+
+.error-message {
+  color: red;
+}/*# sourceMappingURL=question.component.css.map */

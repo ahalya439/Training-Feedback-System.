@@ -1,0 +1,272 @@
+<p>feedbacksub works!</p>
+<app-navbarr></app-navbarr>
+<app-sideee></app-sideee>
+<div class="col-md-12 col-lg-9 right ">
+   
+  <nav aria-label="breadcrumb ">
+    <ol class="no breadcrumb">
+      
+    </ol>
+  </nav>
+  <nav aria-label="breadcrumb ">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/feedbackk">feedback</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a routerLink="/Multiplefeedback">php feedback</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        feedback-6
+      </li>
+    </ol>
+  </nav>
+  <h2 class="text-center">Php Feedback</h2>
+   <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <p>Would you like to provide anonymous feedback?</p>
+      <div class="form-check">
+        <input type="checkbox" formControlName="anonymousFeedback" class="form-check-input" />
+        <label for="anonymousFeedback" class="form-check-label">Go, anonymous feedback</label>
+      </div>
+    </div>
+  
+   
+    
+    <div class="form-group">
+      <label for="studentName" class="mb-2">Student Name</label>
+      <input type="text" formControlName="studentName" class="form-control" (input)="updateErrorMessage('studentName')" />
+      <div *ngIf="feedbackForm.get('studentName')">
+        <div *ngIf="isErrorMessageVisible('studentName')" class="error-message">
+          <div *ngIf="feedbackForm.get('studentName')?.errors?.['required']">Student Name is required</div>
+          <div *ngIf="feedbackForm.get('studentName')?.errors?.['pattern']">Invalid characters entered</div>
+        </div>
+      </div>
+    </div>
+    <!-- For Instructor Name -->
+<div class="form-group">
+  <label for="instructorName" class="mb-2">Instructor Name</label>
+  <input type="text" formControlName="instructorName" class="form-control" (input)="updateErrorMessage('instructorName')" />
+  <div *ngIf="feedbackForm.get('instructorName')">
+    <div *ngIf="isErrorMessageVisible('instructorName')" class="error-message">
+      <div *ngIf="feedbackForm.get('instructorName')?.errors?.['required']">Instructor Name is required</div>
+      <div *ngIf="feedbackForm.get('instructorName')?.errors?.['pattern']">Invalid characters entered</div>
+    </div>
+  </div>
+</div>
+
+<!-- For Course Name -->
+<div class="form-group">
+  <label for="courseName" class="mb-2">Course Name</label>
+  <input type="text" formControlName="courseName" class="form-control" (input)="updateErrorMessage('courseName')" />
+  <div *ngIf="feedbackForm.get('courseName')">
+    <div *ngIf="isErrorMessageVisible('courseName')" class="error-message">
+      <div *ngIf="feedbackForm.get('courseName')?.errors?.['required']">Course Name is required</div>
+      <div *ngIf="feedbackForm.get('courseName')?.errors?.['pattern']">Invalid characters entered</div>
+    </div>
+  </div>
+</div>
+
+    
+  
+    <hr>
+  
+    <h4 class="left">Training Effectiveness</h4>
+  
+    <div class="form-group">
+      <p>1. How relevant was the training content to your learning objectives?</p>
+      <div class="form-check form-check-inline">
+        <input type="radio" formControlName="contentRelevance" value="1" class="form-check-input" />
+        <label class="form-check-label">1</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input type="radio" formControlName="contentRelevance" value="2" class="form-check-input" />
+        <label class="form-check-label">2</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input type="radio" formControlName="contentRelevance" value="3" class="form-check-input" />
+        <label class="form-check-label">3</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input type="radio" formControlName="contentRelevance" value="4" class="form-check-input" />
+        <label class="form-check-label">4</label>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <p>2. Were the training materials (e.g., presentations, handouts) clear and helpful in understanding the content?</p>
+      <div class="form-check">
+        <input type="radio" formControlName="clearMaterials" value="Yes" class="form-check-input" />
+        <label class="form-check-label">Yes</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" formControlName="clearMaterials" value="No" class="form-check-input" />
+        <label class="form-check-label">No</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <p>3. Did the training material meet your expectations?</p>
+      <div class="form-check">
+        <input
+         type="radio" class="border"
+         formControlName="trainingMaterialExpectations"
+         
+          value="Yes"
+          class="form-check-input"
+         
+        />
+        <label for="trainingMaterialExpectations" class="form-check-label"
+          >Yes</label
+        >
+      </div>
+      <div class="form-check">
+        <input
+         type="radio" class="border"
+         formControlName="trainingMaterialExpectations"
+          name="trainingMaterialExpectations"
+          value="No"
+          class="form-check-input"
+         
+        />
+        <label for="trainingMaterialExpectations" class="form-check-label"
+          >No</label
+        >
+      </div>
+    </div> <div class="form-group">
+      <p>4. Was the trainer knowledgeable and engaging?</p>
+      <div class="form-check">
+        <input
+         type="radio" class="border"
+         formControlName="knowledgeable"
+          name="knowledgeable"
+          value="Yes"
+          class="form-check-input"
+         
+        />
+        <label for="knowledgeable" class="form-check-label"
+          >Yes</label
+        >
+      </div>
+      <div class="form-check">
+        <input
+         type="radio" class="border"
+         formControlName="knowledgeable"
+          name="knowledgeable"
+          value="No"
+          class="form-check-input"
+         
+        />
+        <label for="knowledgeable" class="form-check-label"
+          >No</label
+        >
+      </div>
+    </div>
+     <div class="form-group">
+      <p>5. Were the training sessions well-structured and organized?</p>
+      <div class="form-check">
+        <input type="radio" formControlName="wellStructured" value="Yes" class="form-check-input" />
+        <label class="form-check-label">Yes</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" formControlName="wellStructured" value="No" class="form-check-input" />
+        <label class="form-check-label">No</label>
+      </div>
+    </div>
+  
+    <hr />
+  
+    <h4 class="left">Instructor Effectiveness</h4>
+  
+    <div class="form-group">
+      <p>6. How would you rate the instructor's knowledge of the subject matter?</p>
+      <div class="form-check form-check-inline">
+        <input type="radio" formControlName="instructorKnowledge" value="1" class="form-check-input" />
+        <label class="form-check-label">1</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input type="radio" formControlName="instructorKnowledge" value="2" class="form-check-input" />
+        <label class="form-check-label">2</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input type="radio" formControlName="instructorKnowledge" value="3" class="form-check-input" />
+        <label class="form-check-label">3</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input type="radio" formControlName="instructorKnowledge" value="4" class="form-check-input" />
+        <label class="form-check-label">4</label>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <p>7. Did the instructor effectively engage and interact with the class?</p>
+      <div class="form-check">
+        <input type="radio" formControlName="instructorEngagement" value="Yes" class="form-check-input" />
+        <label class="form-check-label">Yes</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" formControlName="instructorEngagement" value="No" class="form-check-input" />
+        <label class="form-check-label">No</label>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <p>8. Were the explanations and examples provided by the instructor clear and easy to understand?</p>
+      <div class="form-check">
+        <input type="radio" formControlName="clearExplanations" value="Yes" class="form-check-input" />
+        <label class="form-check-label">Yes</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" formControlName="clearExplanations" value="No" class="form-check-input" />
+        <label class="form-check-label">No</label>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <p>9. Did the trainer use appropriate teaching methods and resources during the sessions?</p>
+      <div class="form-check">
+        <input type="radio" formControlName="appropriateMethods" value="Yes" class="form-check-input" />
+        <label class="form-check-label">Yes</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" formControlName="appropriateMethods" value="No" class="form-check-input" />
+        <label class="form-check-label">No</label>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <p>10. Were there any technical issues or disruptions during the training sessions?</p>
+      <div class="form-check">
+        <input type="radio" formControlName="technicalIssues" value="Yes" class="form-check-input" />
+        <label class="form-check-label">Yes</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" formControlName="technicalIssues" value="No" class="form-check-input" />
+        <label class="form-check-label">No</label>
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="!feedbackForm.valid" class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#exampleModal">Submit</button>
+    <button type="button" (click)="onReset()" class="btn btn-secondary ">Reset</button>
+ 
+   </form>
+</div>
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header ">
+        <h1 class="modal-title  fs-5" id="exampleModalLabel" style="margin-left:200px">Success</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center"style="color:green" >
+       Successfully submitted
+      </div>
+      
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> 
+    </div>
+  </div>

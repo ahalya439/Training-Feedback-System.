@@ -1,0 +1,53 @@
+@media (min-width:1440px) {
+    
+    .submit{
+      margin-left: 900px;
+    }
+    
+        .col-lg-9{
+            width: 1150px;
+            margin-top: 30px;
+            margin-left: 350px;
+          }}
+          .primary {
+            background-color: #007bff;
+            color: white;
+          }
+          
+          .error-message {
+            color: red;
+          }
+          .modal-content {
+            background-color: #ffffff; /* Set the background color to a bright color */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+            border-radius: 10px; /* Add border radius for rounded corners */
+        }
+        
+        .modal-header {
+            border-bottom: none; /* Remove the border at the top */
+        }
+        
+        .modal-footer {
+            border-top: none; /* Remove the border at the bottom */
+        }
+        
+        .modal-dialog {
+            margin: 100px auto; /* Adjust the modal's position */
+        }
+        .submit a{
+          text-decoration: none;
+        }
+    
+        @media (max-width:770px) {
+              
+    .submit{
+      margin-left: 520px;
+    }
+        }
+        
+        @media (max-width:340px) {
+              
+          .submit{
+            margin-left: 100px;
+          }
+              }

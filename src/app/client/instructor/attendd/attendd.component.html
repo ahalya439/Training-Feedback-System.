@@ -1,0 +1,388 @@
+<app-nav></app-nav>
+<app-sidee></app-sidee>
+<div class="col-lg-9 col-md-12 right">
+  
+    
+    <nav aria-label="breadcrumb ">
+      <ol class="breadcrumb">
+       
+      <li class="breadcrumb-item">
+          <a routerLink="/attendancee">Attendance</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          php Attendance
+        </li> 
+      </ol>
+    </nav>
+    <nav aria-label="breadcrumb ">
+      <ol class="breadcrumb">
+       
+        <li class="breadcrumb-item">
+          <a routerLink="/attendancee">Attendance</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          php Attendance
+        </li>
+      </ol>
+    </nav>
+  
+    <div class="container mt-5" >
+      <h2 class=" text-center">Course Attendance</h2>
+
+      <p class="fs-5 h3">Course: <span id="courseName">Introduction to php</span></p>
+    
+
+
+
+         <div class="table table-responsive text-left mt-4" >
+          <label for="year" >Select Year:</label>
+          <select id="year" [(ngModel)]="selectedYear" (change)="updateTableHeader()">
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+             
+          </select>
+      
+          <label for="month" class="month">Select Month:</label>
+          <select id="month" [(ngModel)]="selectedMonth" (change)="updateTableHeader()">
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+           
+          </select>
+      
+          <label for="week" class="week">Select Week:</label>
+          <select id="week" [(ngModel)]="selectedWeek" (change)="updateTableHeader()">
+              <option value="1">Week 1</option>
+              <option value="2">Week 2</option>
+              <option value="3">Week 3</option>
+              <option value="4">Week 4</option>
+             
+          </select>
+      </div>
+      
+      
+      
+
+        
+
+    
+
+
+
+
+
+
+<div class="table table-responsive" id="attendanceTable">
+  <table class="table  table-bordered border-0">
+    <thead>
+      <tr>
+        <th scope="col">S.NO</th>
+        <th scope="col">Name</th>
+        <th scope="col">23/12/23</th>
+        <th scope="col">24/12/23</th>
+        <th scope="col">25/12/23</th>
+        <th scope="col">26/12/23</th>
+        <th scope="col">27/12/23</th>
+        <th scope="col">28/12/23</th>
+        <th scope="col">29/12/23</th>
+        <th scope="col">No.of.days absent</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>John</td>
+        <td>
+          <select class="form-control" name="attendanceStatus1" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        <td>
+          <select class="form-control" name="attendanceStatus1" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        <td>
+          <select class="form-control" name="attendanceStatus1" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        <td>
+          <select class="form-control" name="attendanceStatus1" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        <td>
+          <select class="form-control" name="attendanceStatus1" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+    
+        <td>
+          <select class="form-control" name="attendanceStatus1" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        <td>
+          <select class="form-control" name="attendanceStatus1" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        <td>
+          <select class="form-control" name="number1">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>lily</td>
+        <td>
+          <select class="form-control" name="attendanceStatus2" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        <td>
+          <select class="form-control" name="attendanceStatus2" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        <td>
+          <select class="form-control" name="attendanceStatus2" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        <td>
+          <select class="form-control" name="attendanceStatus2" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        <td>
+          <select class="form-control" name="attendanceStatus2" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        
+       
+        <td>
+          <select class="form-control" name="attendanceStatus2" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        <td>
+          <select class="form-control" name="attendanceStatus2" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        <td>
+          <select class="form-control" name="number2">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>mark</td>
+        <td>
+          <select class="form-control" name="attendanceStatus3" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        <td>
+          <select class="form-control" name="attendanceStatus3" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        <td>
+          <select class="form-control" name="attendanceStatus3" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        <td>
+          <select class="form-control" name="attendanceStatus3" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        <td>
+          <select class="form-control" name="attendanceStatus3" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        
+        
+        <td>
+          <select class="form-control" name="attendanceStatus3" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        <td>
+          <select class="form-control" name="attendanceStatus3" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        <td>
+          <select class="form-control" name="number3">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>Julie</td>
+        <td>
+          <select class="form-control" name="attendanceStatus4" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        <td>
+          <select class="form-control" name="attendanceStatus4" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        <td>
+          <select class="form-control" name="attendanceStatus4" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        <td>
+          <select class="form-control" name="attendanceStatus4" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        <td>
+          <select class="form-control" name="attendanceStatus4" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        
+      
+        <td>
+          <select class="form-control" name="attendanceStatus4" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        <td>
+          <select class="form-control" name="attendanceStatus4" (change)="updateCellColor($event)">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+          </select>
+        </td>
+        <td>
+          <select class="form-control" name="number">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
+        </td>
+      </tr>
+   
+    </tbody>
+  </table>
+</div>
+<button
+type="button"
+class="btn btn-success save"
+data-bs-toggle="modal"
+data-bs-target="#successModal"
+(click)="saveAttendance()"
+>
+Save
+</button>
+  <!-- <button type="button" class="btn btn-primary" (click)="saveAttendance()">Save Attendance</button>
+  -->
+
+<div
+class="modal fade"
+id="successModal"
+tabindex="-1"
+role="dialog"
+aria-labelledby="successModalLabel"
+aria-hidden="true"
+>
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5
+        class="modal-title"
+        id="successModalLabel"
+        style="margin-left: 190px"
+      >
+        Success
+      </h5>
+      <button
+        type="button"
+        class="close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div
+      class="modal-body text-center"
+      id="successModalBody"
+      style="color: green"
+    >
+      Successfully Saved
+    </div>
+  </div>
+</div>
+</div>

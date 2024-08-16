@@ -1,0 +1,32 @@
+@media (min-width: 1440px) {
+  .user {
+    margin-left: 420px;
+  }
+  .col-lg-9 {
+    width: 1150px;
+    margin-top: 50px;
+    margin-left: 350px;
+  }
+  .suc {
+    margin-left: 980px;
+  }
+  .su {
+    margin-left: 200px;
+  }
+  table tr td, table tr th {
+    padding: 20px;
+  }
+  table tr th {
+    padding-left: 25px;
+  }
+}
+@media (max-width: 770px) {
+  .suc {
+    margin-left: 600px;
+  }
+}
+@media (max-width: 340px) {
+  .suc {
+    margin-left: 175px;
+  }
+}/*# sourceMappingURL=user-management.component.css.map */

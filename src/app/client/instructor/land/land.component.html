@@ -1,0 +1,60 @@
+
+<app-nav></app-nav>
+<app-sidee></app-sidee>
+
+<div class="col-md-12 col-lg-9 right">
+  <nav aria-label="breadcrumb ">
+    <ol class="breadcrumb">
+     
+    </ol>
+  </nav>
+  <div class="container mt-5" >
+    <h2 class="text-center courses" >Ongoing Courses</h2>
+
+    <div class="row d-flex mt-3">
+      <div class="flip-card-3D-wrapper col-md-4" *ngFor="let course of  OngoingCourses">
+        <div class="flip-card">
+          <div class="flip-card-front">
+            <img [src]="course.image" [class]="course.imageClass" />
+          </div>
+          <div class="flip-card-back">
+            <div class="card-body">
+              <h5 class="text-dark text-center"><b>{{ course.title }}</b></h5>
+              <p class="mt-3 ">Trainer name: {{ course.trainer }}</p>
+              <p>Start Date: {{ course.startDate }}</p>
+              <p>Duration: {{ course.duration }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-body text-center text" style="margin-top: 23px;">
+          <span class="card-text">{{ course.title }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container-2" >
+    <h2 class="text-center courses" >Upcoming Courses</h2>
+
+    <div class="row d-flex mt-3">
+      <div class="flip-card-3D-wrapper col-md-4" *ngFor="let course of UpcomingCourses">
+        <div class="flip-card">
+          <div class="flip-card-front">
+            <img [src]="course.image" [class]="course.imageClass" />
+          </div>
+          <div class="flip-card-back">
+            <div class="card-body">
+              <h5 class="text-dark text-center"><b>{{ course.title }}</b></h5>
+              <p class="mt-3">Trainer name: {{ course.trainer }}</p>
+              <p>Start Date: {{ course.startDate }}</p>
+              <p>Duration: {{ course.duration }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-body text-center text" style="margin-top: 23px;">
+          <span class="card-text">{{ course.title }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

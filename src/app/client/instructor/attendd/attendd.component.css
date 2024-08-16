@@ -1,0 +1,80 @@
+body {
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 950px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+}
+
+#participantList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.participant {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+@media (min-width: 1440px) {
+  .month, .week {
+    margin-left: 20px;
+  }
+  .col-lg-9 {
+    width: 1150px;
+    margin-top: 30px;
+    margin-left: 350px;
+  }
+  .save {
+    margin-left: 840px;
+  }
+}
+.breadcrumb {
+  background-color: #f8f9fa;
+  padding: 10px 15px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+/* Breadcrumb item styling */
+.breadcrumb-item {
+  display: inline-block;
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+.breadcrumb-item a {
+  text-decoration: none;
+}
+
+/* Active breadcrumb item styling */
+.breadcrumb-item.active {
+  color: #007bff;
+  font-weight: bold; /* Make the active item bold */
+}
+
+/* Separator styling */
+.breadcrumb-item::after {
+  content: ""; /* Use a bullet point as a separator */
+  margin-left: 8px;
+  color: #6c757d;
+}
+
+/* Remove separator from the last item */
+.breadcrumb-item:last-child::after {
+  content: none;
+}
+
+/* Add this style to your component's CSS file *//*# sourceMappingURL=attendd.component.css.map */

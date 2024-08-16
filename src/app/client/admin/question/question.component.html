@@ -1,0 +1,100 @@
+
+<app-navbar></app-navbar>
+<app-side></app-side>
+
+<div class="col-lg-9 col-md-12 right">
+
+
+  <nav aria-label="breadcrumb ">
+    <ol class="no breadcrumb">
+     
+    </ol>
+  </nav>
+
+  <nav aria-label="breadcrumb ">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/generatefeedback">Feedback</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a routerLink="/multifeedback">php feedback</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        Generate Question
+      </li>
+    </ol>
+  </nav>
+
+
+
+
+
+ <div class="container mt-4">
+  <h1 class="text-center mb-4">Php Feedback Question Generator</h1>
+
+
+
+
+
+  <form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+
+    <div class="mb-3">
+      <label for="title" class="form-label">Title (optional):</label>
+      <input formControlName="title" type="text" class="form-control" id="title" />
+    </div>
+    
+  
+    
+    
+    <div class="mb-3">
+      <label for="question" class="form-label">Question:</label>
+      <input formControlName="question" type="text" class="form-control" id="question" required />
+      <div *ngIf="questionForm.get('question')?.invalid && questionForm.get('question')?.touched" class="error-message">
+        Question is required.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="questionType" class="form-label">Question Type:</label>
+      <select formControlName="questionType" class="form-select" id="questionType" required>
+        <option value="text">Text</option>
+       
+        <option value="radio">Radio Button</option>
+        <option value="checkbox">Checkbox</option>
+      </select>
+      <div *ngIf="questionForm.get('questionType')?.invalid && questionForm.get('questionType')?.touched" class="error-message">
+        Question type is required.
+      </div>
+    </div>
+
+    
+    <div class="mb-3" *ngIf="questionForm.get('questionType')?.value !== 'text'">
+      <label for="options" class="form-label">Options (comma-separated):</label>
+      <input formControlName="options" type="text" class="form-control" id="options" />
+      <div *ngIf="questionForm.get('questionType')?.value !== 'text' && questionForm.get('options')?.invalid && questionForm.get('options')?.touched" class="error-message">
+        Options are required.
+      </div>
+    </div>
+
+
+    <div class="mb-3" *ngIf="questionForm.get('questionType')?.value === 'text'">
+      <label for="textInput" class="form-label">Enter Text:</label>
+      <input formControlName="textInput" type="text" class="form-control" id="textInput" />
+      <div *ngIf="questionForm.get('textInput')?.invalid && questionForm.get('textInput')?.touched" class="error-message">
+        Text input is required.
+      </div>
+    </div>
+
+  
+    <button type="button" class="btn btn-primary  me-2" (click)="addQuestion()">Add Question</button>
+
+ 
+    <button type="button" class="btn btn-secondary " (click)="cancelForm()">Clear</button>
+     </form>
+
+
+  <div id="questionsContainer" class="mt-4"></div>
+</div> 
+
+
+

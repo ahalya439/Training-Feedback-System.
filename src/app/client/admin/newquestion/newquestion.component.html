@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<app-side></app-side>
+
+  <div class="col-lg-9 col-md-12 right mt-5">
+    <form>
+    <div *ngFor="let question of questions" class="mb-4 mt-5">
+      <h5>{{ question.question }}</h5>
+      <div *ngIf="question.questionType === 'radio'">
+        <div *ngFor="let option of question.options">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" [id]="option" [value]="option" [formControlName]="'question' + question.id">
+            <label class="form-check-label" [for]="option">{{ option }}</label>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="question.questionType === 'checkbox'">
+        <div *ngFor="let option of question.options">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" [id]="option" [value]="option" [formControlName]="'question' + question.id">
+            <label class="form-check-label" [for]="option">{{ option }}</label>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="question.questionType === 'text'" class="mb-3">
+        <input class="form-control" type="text" [id]="'textResponse' + question.id" [formControlName]="'question' + question.id">
+      </div>
+    </div>
+    <!-- <button type="submit"  class="btn btn-primary" [disabled]="!feedbackForm.valid" data-bs-toggle="modal" data-bs-target="#exampleModal">Submit</button> -->
+  </form>
+</div>
+
+  <!-- <div *ngFor="let question of questions">
+    <h5>{{ question.question }}</h5>
+    <div *ngIf="question.questionType === 'radio'">
+      <div *ngFor="let option of question.options">
+        <input type="radio" name="question{{ question.id }}" [value]="option"> {{ option }}
+      </div>
+    </div>
+    <div *ngIf="question.questionType === 'checkbox'">
+      <div *ngFor="let option of question.options">
+        <input type="checkbox" name="question{{ question.id }}" [value]="option"> {{ option }}
+      </div>
+    </div>
+    <div *ngIf="question.questionType === 'text'">
+      <input type="text" name="textResponse{{ question.id }}" 
+        [ngModel]="textResponses[question.id]?.response" 
+        (ngModelChange)="updateResponse(question.id, $event)">
+    </div>
+  </div> -->
+  

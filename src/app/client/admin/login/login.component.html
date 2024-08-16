@@ -1,0 +1,263 @@
+<h1 class="display-6 text-center">Training Feedback System</h1>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6">
+      <img
+        src="https://img.freepik.com/premium-vector/business-office-figures-isometric-illustration-financial-management-technology-background-poster_432516-524.jpg?size=626&ext=jpg"
+        class="img-fluid"
+      />
+    </div>
+    <div class="col-md-6">
+      <h1 class="dis mt-3">
+        Welcome to <b><span class="display-5">Traineeval</span></b>
+      </h1>
+
+      <h4 class="small mt-4">Please enter your details below to log in</h4>
+
+      <form
+        role="form"
+        class="d-flex flex-column gap-3"
+        (ngSubmit)="onSubmit()"
+        #loginForm="ngForm"
+      >
+        <div class="form-group">
+          <label for="user">Username<span style="color: red">*</span></label>
+          <input
+            type="text"
+            class="form-control"
+            id="user"
+            placeholder="Enter Username"
+            [(ngModel)]="user.username"
+            name="username"
+            required
+            pattern="[a-zA-Z ]*"
+            (ngModelChange)="validateUsername()"
+          />
+          <div *ngIf="usernameInvalid && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)" class="error" style="color: red">
+            <div *ngIf="loginForm.controls['username'].errors?.['required']">
+              Username is required.
+            </div>
+            <div *ngIf="loginForm.controls['username'].errors?.['pattern']">
+              Username must contain only alphabets.
+            </div>
+          </div>
+        </div>
+    
+        <!-- <div class="form-group">
+          <label for="email">Enter Your Email</label>
+          <input type="email" id="email" name="email" class="form-control" placeholder="exam43@gmail.com" required [(ngModel)]="user.email" name="email"  required />
+          <p *ngIf="emailError" class="error">{{ emailError }}</p>
+      </div> -->
+
+        <div class="form-group">
+          <label for="pswd">Password<span style="color: red">*</span></label>
+          <input
+            type="password"
+            class="form-control"
+            id="pswd"
+            placeholder="Enter Password"
+            [(ngModel)]="user.password"
+            name="password"
+            required
+            minlength="6"
+            (ngModelChange)="validatePassword()"
+          />
+          <div *ngIf="passwordInvalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="error" style="color: red">
+            <div *ngIf="loginForm.controls['password'].errors?.['required']">
+              Password is required.
+            </div>
+            <div *ngIf="loginForm.controls['password'].errors?.['minlength']">
+              Password must be at least 6 characters long.
+            </div>
+          </div>
+        
+      
+          <img
+            src="./assets/images/eye.png"
+            class="eye"
+            (click)="togglePassword()"
+          />
+        </div>
+        <div class="form-group">
+          <label for="role">Select Role:</label>
+          <select id="role" name="role" [(ngModel)]="user.role" required>
+            <option value="select">Select</option>
+            <option value="Participant">Participant</option>
+            <option value="Instructor">Instructor</option>
+            <option value="Admin">Admin</option>
+          </select>
+        </div>
+        <!-- <div class="row">
+          <div class="col">
+            <a href="#" class="forgot primary"   data-bs-toggle="modal"
+            data-bs-target="#forgotModal"v
+      >Forgot Password?</a>
+          </div>
+        </div> -->
+        <span *ngIf="errorMessage" class="error" style="color: red">{{
+          errorMessage
+        }}</span>
+
+        <button
+          type="submit"
+          class="btn login-btn proceed-btn btn-primary btn-block"
+        >
+          Sign-In
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- <div
+  class="modal fade"
+  id="forgotModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="example"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="example">Forgot Password</h5>
+        <button
+          type="button"
+          class="close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-1">
+          <form #forgotPasswordForm="ngForm">
+            <div id="step1" [style.display]="step === 1 ? 'block' : 'none'">
+              <div class="form-group">
+                <label for="email">Enter Your Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                  placeholder="exam43@gmail.com"
+                  required
+                  [(ngModel)]="email"
+                />
+                <p *ngIf="emailError" class="error">{{ emailError }}</p>
+              </div>
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="verifyEmail()"
+              >
+                Submit
+              </button>
+            </div>
+
+            <div id="step2" *ngIf="step === 2">
+              <h2 class="mb-4">Security Question</h2>
+              <div class="form-group">
+                <label for="securityQuestion"
+                  >Select a Security Question:</label
+                >
+                <select
+                  id="securityQuestion"
+                  class="form-control"
+                  [(ngModel)]="selectedSecurityQuestion"
+                  name="securityQuestion"
+                  required
+                >
+                  <option value="" disabled selected>
+                    Select a security question
+                  </option>
+                  <option value="bird">
+                    What is your favourite bird name?
+                  </option>
+                  <option value="place">
+                    What is your favorite place to visit?
+                  </option>
+                  <option value="game">What is your favorite game?</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="securityAnswer">Answer</label>
+                <input
+                  type="text"
+                  id="securityAnswer"
+                  class="form-control"
+                  [(ngModel)]="securityAnswer"
+                  name="securityAnswer"
+                  required
+                />
+                <p *ngIf="securityAnswerError" class="error">
+                  {{ securityAnswerError }}
+                </p>
+              </div>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="backToStep1()"
+              >
+                Back
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="validateSecurityAnswer()"
+              >
+                Submit
+              </button>
+            </div>
+
+            <div id="step3" *ngIf="step === 3">
+              <h2 class="mb-4">Reset Password</h2>
+              <div class="form-group">
+                <label for="newPass">Enter New Password</label>
+                <input
+                  type="password"
+                  id="newPass"
+                  class="form-control"
+                  [(ngModel)]="newPassword"
+                  name="newPass"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="confirm">Confirm New Password</label>
+                <input
+                  type="password"
+                  id="confirm"
+                  class="form-control"
+                  [(ngModel)]="confirmPassword"
+                  name="confirm"
+                  required
+                />
+                <p *ngIf="passwordError" class="error">{{ passwordError }}</p>
+              </div>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="backToStep2()"
+              >
+                Back
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="resetPassword()"
+              >
+                Reset Password
+              </button>
+            </div>
+            <div id="step4" *ngIf="step === 4">
+              <p style="color: green">Password successfully changed</p>
+            </div>
+          </form>
+
+          <div id="toast" class="mt-4"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

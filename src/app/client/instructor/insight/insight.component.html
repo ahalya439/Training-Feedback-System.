@@ -1,0 +1,59 @@
+<app-nav></app-nav>
+<app-sidee></app-sidee>
+<div class="col-lg-9 col-md-12 right">
+  <nav aria-label="breadcrumb">
+    <ol class="no breadcrumb mt-4">
+     </ol>
+  </nav>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mt-4">
+        <li class="breadcrumb-item"><a  [routerLink]="['/reportt']">Report</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Insights</li>
+      </ol>
+    </nav>
+
+<div *ngFor="let row of tableData">
+<div class="container mt-5">
+  <h1 class="text-center">Training Insights</h1>
+
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <p>Submitted on: {{ row.submissionDate }}</p> 
+      <div class="alert alert-info">
+        <h4 class="alert-heading">Positive Aspects</h4>
+        <ul>
+          <li >{{ row.positiveAspects}}</li>
+        </ul>
+      </div>
+
+      <div class="alert alert-warning">
+        <h4 class="alert-heading">Areas for Improvement</h4>
+        <ul>
+          <li >{{ row.areasForImprovement}}</li>
+        </ul>
+      </div>
+
+      <div class="alert alert-success">
+        <h4 class="alert-heading">Suggestions</h4>
+        <ul>
+          <li >{{ row.suggestions }}</li>
+          <li >{{ row.suggestions }}</li>
+        </ul>
+      </div>
+
+      <div class="alert alert-secondary">
+        <h4 class="alert-heading">Questions</h4>
+        <ol>
+          <li >{{ row.questions}}</li>
+          <li >{{ row.questions}}</li>
+        </ol>
+      </div>
+      <div class="alert alert-dark">
+        <h4 class="alert-heading">Date Sent</h4>
+        <p>{{ row.dateSent | date }}</p> <!-- Display the date -->
+      </div>
+    </div>
+  </div>
+
+
+
